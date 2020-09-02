@@ -10,10 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/LamLeTomat/courses-nodejs-express.git"
   },
-  "author": "",
+  "author": "lamletomat",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LamLeTomat/courses-nodejs-express/issues"
   },
-  "homepage": "https://github.com/LamLeTomat/courses-nodejs-express#readme"
+  "homepage": "https://github.com/LamLeTomat/courses-nodejs-express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
