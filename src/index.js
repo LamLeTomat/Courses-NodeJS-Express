@@ -8,6 +8,10 @@ const port = 3000;
 //set static files public/
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Body parser
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 //template engine
 app.engine('hbs', handlebars({
   extname: '.hbs'
@@ -19,9 +23,14 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 app.get('/', (req, res) => {
   res.render('home');
 });
+
 app.get('/search', (req, res) => {
-  console.log(req.query.q);
   res.render('search');
+});
+app.post('/search', (req, res) => {
+  // res.render('search');
+  res.json(req.body);
+  console.log(req.body);
 });
 
 app.get('/news', (req, res) => {
