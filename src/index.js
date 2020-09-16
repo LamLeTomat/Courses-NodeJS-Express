@@ -5,6 +5,8 @@ const handlebars  = require('express-handlebars');
 
 const port = 3000;
 
+const route = require('./routes/index');
+
 //set static files public/
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -20,22 +22,9 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources', 'views'));
 
 //route
-app.get('/', (req, res) => {
-  res.render('home');
-});
+//Routes init
+route(app);
 
-app.get('/search', (req, res) => {
-  res.render('search');
-});
-app.post('/search', (req, res) => {
-  // res.render('search');
-  res.json(req.body);
-  console.log(req.body);
-});
-
-app.get('/news', (req, res) => {
-  res.render('news');
-});
 
 
 app.listen(port, () => {
